@@ -1,6 +1,6 @@
 {
-    "name": "list_movies_series",
-    "short_name": "list_movies_series",
+    "name": "pruebalogin",
+    "short_name": "pruebalogin",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
