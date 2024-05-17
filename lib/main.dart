@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pruebalogin/google_sign_in/google_sign_in.dart';
 import 'package:pruebalogin/screens/login.dart';
 void main() {
   runApp(MyApp());
@@ -14,6 +15,7 @@ class MyApp extends StatelessWidget {
       routes: {
         //'/':(context) => MyApp(),
         '/login': (context) => LoginPage(),
+        '/google_sign': (context) => GoogleSignInScreen(),
       
       },
       theme: ThemeData(
