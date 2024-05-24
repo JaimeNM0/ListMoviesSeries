@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:list_movies_series/providers/series_profile_provider.dart';
 import 'package:list_movies_series/screens/Home.dart';
-//import 'package:list_movies_series/providers/service.dart';
+import 'package:list_movies_series/providers/service.dart';
 import 'package:provider/provider.dart';
 //import 'package:list_movies_series/screens/pruebaFuture.dart';
 
@@ -46,6 +46,7 @@ class MyApp extends StatelessWidget {
         secondaryHeaderColor: ColorBlanco.blanco,
         hintColor: ColorRojoOscuro.rojoOscuro,
       ),*/
+      home: Home(),
     );
   }
 }

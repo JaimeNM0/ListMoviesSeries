@@ -4,7 +4,11 @@ class Series {
   final String startDate;
   final String image;
 
-  Series({required this.id, required this.name, required this.startDate, required this.image});
+  Series(
+      {required this.id,
+      required this.name,
+      required this.startDate,
+      required this.image});
 
   factory Series.fromJson(Map<String, dynamic> json) {
     return Series(
