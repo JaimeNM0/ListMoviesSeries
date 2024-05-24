@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:list_movies_series/providers/series_profile_provider.dart';
 import 'package:list_movies_series/screens/Home.dart';
-import 'package:list_movies_series/providers/service.dart';
+//import 'package:list_movies_series/providers/service.dart';
 import 'package:provider/provider.dart';
 //import 'package:list_movies_series/screens/pruebaFuture.dart';
 
@@ -23,7 +23,7 @@ class Gestor extends StatelessWidget {
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
-  static const String _title = 'Aplicación HOTEL';
+  static const String _title = 'List Movies Series';
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       //color: ColorFondoAmarillo.fondoAmarillo,
       title: _title,
-      initialRoute: 'home ',
+      initialRoute: '/home',
       
       routes: {
         //'/':(context) => MyApp(),
@@ -46,7 +46,6 @@ class MyApp extends StatelessWidget {
         secondaryHeaderColor: ColorBlanco.blanco,
         hintColor: ColorRojoOscuro.rojoOscuro,
       ),*/
-      home: Home(),
     );
   }
 }

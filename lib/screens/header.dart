@@ -31,7 +31,7 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
           child: Row(
             children: [
               Text(title),
-              new Icon(Icons.merge_type),
+              const Icon(Icons.merge_type),
             ],
           ),
           /*new Icon(Icons.merge_type),*/
