@@ -94,7 +94,7 @@ class RegisterPage extends StatelessWidget {
                       Container(
                         child: TextField(
                           decoration: InputDecoration(
-                            labelText: 'teléfono',
+                            labelText: 'Teléfono',
                             labelStyle:
                                 TextStyle(color: Colors.white, fontSize: 10),
                           ),
