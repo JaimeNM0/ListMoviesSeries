@@ -1,5 +1,7 @@
 //import 'package:flutter/cupertino.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:list_movies_series/models/product.dart';
 import 'package:list_movies_series/models/series_profile_models.dart';
 import 'package:list_movies_series/providers/series_profile_provider.dart';
@@ -25,25 +27,45 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     final listSeriesProfile =
         Provider.of<SeriesProfileProvider>(context, listen: false);
-    const usuario = null;
+    const Map<String, String> usuario = {
+      "nick": "Serenn",
+      "nombre": "Juan",
+      "correo": "juan@gmail.com",
+    };
     //const title = 'Horizontal List';
 
     return MaterialApp(
       //title: title,
       home: Scaffold(
-        appBar: MyAppBar(title: usuario),
+        appBar: MyAppBar(title: usuario["nick"]),
         body: Container(
           color: const Color.fromRGBO(76, 32, 96, 1),
           child: SingleChildScrollView(
             child: Column(
               children: [
-                const Text("Mejores calificaciones"),
+                const Align(
+                  alignment: Alignment.topLeft,
+                  child: Text(
+                    "Mejores calificaciones:",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 22.0,
+                      fontFamily: 'Roboto',
+                    ),
+                  ),
+                ),
                 ListadoSeries(list: listSeriesProfile),
-                const Text("Mejores calificaciones"),
-                ListadoSeries(list: listSeriesProfile),
-                const Text("Mejores calificaciones"),
-                ListadoSeries(list: listSeriesProfile),
-                const Text("Mejores calificaciones"),
+                const Align(
+                  alignment: Alignment.topLeft,
+                  child: Text(
+                    "Mejores calificaciones:",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 22.0,
+                      fontFamily: 'Roboto',
+                    ),
+                  ),
+                ),
                 ListadoSeries(list: listSeriesProfile),
               ],
             ),
@@ -116,7 +138,7 @@ class ListadoSeries extends StatelessWidget {
                 ),
               );
             }
-            return Text("Error no se ha encontrado nada.");
+            return const Text("Error no se ha encontrado nada.");
           }
         });
   }

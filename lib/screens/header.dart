@@ -18,7 +18,10 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
               width: 500, // Ancho deseado de la imagen
               height: 500, // Alto deseado de la imagen
             ),
-            onPressed: () => print('Esta en opciones'),
+            onPressed: () {
+              print('Esta en opciones');
+              Scaffold.of(context).openDrawer();
+            },
           );
         },
       ),
