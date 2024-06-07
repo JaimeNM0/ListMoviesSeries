@@ -2,23 +2,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:list_movies_series/models/product.dart';
 import 'package:list_movies_series/models/series_profile_models.dart';
 import 'package:list_movies_series/providers/series_profile_provider.dart';
-import 'package:list_movies_series/providers/service.dart';
+//import 'package:list_movies_series/screens/drawer.dart';
 import 'package:provider/provider.dart';
-
 import 'header.dart';
-
-/*class hola extends StatelessWidget {
-  static const String _title = 'Listado Series';
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Productos(context),
-    );
-  }
-}*/
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -28,46 +16,52 @@ class Home extends StatelessWidget {
     final listSeriesProfile =
         Provider.of<SeriesProfileProvider>(context, listen: false);
     const Map<String, String> usuario = {
-      "nick": "Serenn",
-      "nombre": "Juan",
-      "correo": "juan@gmail.com",
+      'nick': 'Serenn',
+      'nombre': 'Juan',
+      'correo': 'juan@gmail.com',
     };
-    //const title = 'Horizontal List';
 
     return MaterialApp(
       //title: title,
       home: Scaffold(
-        appBar: MyAppBar(title: usuario["nick"]),
+        appBar: CustomAppBar(title: usuario["nick"]),
+        //drawer: CustomDrawer(usuario: usuario),
         body: Container(
           color: const Color.fromRGBO(76, 32, 96, 1),
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                const Align(
-                  alignment: Alignment.topLeft,
-                  child: Text(
-                    "Mejores calificaciones:",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 22.0,
-                      fontFamily: 'Roboto',
+          child: Padding(
+            padding: const EdgeInsets.only(
+              left: 10.0,
+              top: 10.0,
+            ),
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  const Align(
+                    alignment: Alignment.topLeft,
+                    child: Text(
+                      "Mejores calificaciones:",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 22.0,
+                        fontFamily: 'Roboto',
+                      ),
                     ),
                   ),
-                ),
-                ListadoSeries(list: listSeriesProfile),
-                const Align(
-                  alignment: Alignment.topLeft,
-                  child: Text(
-                    "Mejores calificaciones:",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 22.0,
-                      fontFamily: 'Roboto',
+                  ListadoSeries(list: listSeriesProfile),
+                  const Align(
+                    alignment: Alignment.topLeft,
+                    child: Text(
+                      "Mejores calificaciones:",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 22.0,
+                        fontFamily: 'Roboto',
+                      ),
                     ),
                   ),
-                ),
-                ListadoSeries(list: listSeriesProfile),
-              ],
+                  ListadoSeries(list: listSeriesProfile),
+                ],
+              ),
             ),
           ),
         ),
@@ -75,40 +69,6 @@ class Home extends StatelessWidget {
     );
   }
 }
-
-/*class Home extends StatelessWidget {
-  const Home({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    final listSeriesProfile =
-        Provider.of<SeriesProfileProvider>(context, listen: false);
-    final usuario = null;
-    return Scaffold(
-      appBar: MyAppBar(title: usuario),
-      body: Column(
-        children: [
-          const Text("Más populares"),
-          /*SizedBox(
-            height: 300,
-            width: double.infinity,
-            child: ListadoSeries(list: listSeriesProfile),
-          ),*/
-          ListadoSeries(list: listSeriesProfile),
-          const Text("Mejores calificaciones"),
-          Expanded(
-            child: ListadoSeries(list: listSeriesProfile),
-          ),
-          const Text("Emitiendo capítulos"),
-          Expanded(
-            child: ListadoSeries(list: listSeriesProfile),
-          ),
-        ],
-        //),
-      ),
-    );
-  }
-}*/ //Expanded para que no de error al tener más tamaño.
 
 class ListadoSeries extends StatelessWidget {
   final list;
@@ -144,22 +104,9 @@ class ListadoSeries extends StatelessWidget {
   }
 }
 
-/*decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              colors: <Color>[
-                Color.fromRGBO(252, 92, 92, 1),
-                Color.fromRGBO(252, 68, 172, 1),
-                Color.fromRGBO(228, 84, 244, 1),
-                Color.fromRGBO(156, 84, 244, 1),
-              ],
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-            ),
-          ),*/
-
 Widget _buildCard(Series series) {
   return SizedBox(
-    width: 200.0,
+    width: 180.0,
     height: 200.0,
     child: Padding(
       padding: EdgeInsets.all(5.0),
@@ -196,8 +143,8 @@ Widget _buildCard(Series series) {
               ClipRRect(
                 borderRadius: BorderRadius.circular(20.0),
                 child: Container(
-                  width: 120.0,
-                  height: 120.0,
+                  width: 160.0,
+                  height: 140.0,
                   foregroundDecoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20.0),
                     border: Border.all(
@@ -212,43 +159,41 @@ Widget _buildCard(Series series) {
                 ),
               ),
               Center(
-                child: Text(series.name),
+                child: Text(
+                  series.name,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 18.0,
+                    fontFamily: 'Roboto',
+                  ),
+                ),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  Text("7"),
-                  Text(series.startDate),
+                  const Text(
+                    "7",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 16.0,
+                      fontFamily: 'Roboto',
+                    ),
+                  ),
+                  Text(
+                    series.startDate,
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 16.0,
+                      fontFamily: 'Roboto',
+                    ),
+                  ),
                 ],
               ),
-              Text(series.id.toString()),
+              //Text(series.id.toString()),
             ],
           ),
         ),
       ),
     ),
   );
-}
-
-class Productos extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    final _list_productos = Provider.of<ProductService>(context, listen: false);
-
-    return Scaffold(
-        body: FutureBuilder<List<Product>>(
-            future: _list_productos.loadProducts(),
-            builder: (context, snapshot) {
-              if (snapshot.connectionState == ConnectionState.waiting) {
-                return const CircularProgressIndicator();
-              } else {
-                if (snapshot.hasData) {
-                  print(snapshot.data!.length);
-                  print(snapshot.data![0].nombre);
-                  return Text("Hola productos");
-                }
-                return Text("Hola productos 2");
-              }
-            }));
-  }
 }

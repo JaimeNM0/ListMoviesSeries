@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
+class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   String title;
 
-  MyAppBar({Key? key, String? title})
+  CustomAppBar({Key? key, String? title})
       : title = (title != null && title.isNotEmpty) ? title : 'Invitado',
         super(key: key);
 
@@ -15,8 +15,8 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
           return IconButton(
             icon: Image.asset(
               'assets/images/LogoMini.png',
-              width: 500, // Ancho deseado de la imagen
-              height: 500, // Alto deseado de la imagen
+              width: 500,
+              height: 500,
             ),
             onPressed: () {
               print('Esta en opciones');
@@ -25,7 +25,6 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
           );
         },
       ),
-      //title: Text(title),
       actions: <Widget>[
         TextButton(
           style: TextButton.styleFrom(
@@ -49,26 +48,10 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 }
 
-/*class MyHeader extends StatelessWidget implements PreferredSizeWidget {
-  String title = 'N.usuario';
-
-  MyHeader({Key? key, required this.title}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: Text(title),
-    );
-  }
-
-  @override
-  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
-}*/
-
-class MyAppBarDetails extends StatelessWidget {
+class CustomAppBarDetails extends StatelessWidget {
   final String title;
 
-  const MyAppBarDetails({Key? key, required this.title}) : super(key: key);
+  const CustomAppBarDetails({Key? key, required this.title}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -78,7 +61,6 @@ class MyAppBarDetails extends StatelessWidget {
         IconButton(
           icon: Icon(Icons.settings),
           onPressed: () {
-            // Acción al presionar el ícono de configuración
           },
         ),
       ],
