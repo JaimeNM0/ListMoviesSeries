@@ -29,7 +29,7 @@ class RegisterPage extends StatelessWidget {
                       Container(
                           margin: EdgeInsets.only( bottom: 50),
                           child: CircleAvatar(
-                              backgroundImage: AssetImage('assets/logo.png'),
+                              backgroundImage: AssetImage('assets/images/logo.png'),
                               // Ruta de la imagen de logo en el directorio de assets
                               radius: 70,
                               child: Container(

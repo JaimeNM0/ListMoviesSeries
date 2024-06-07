@@ -1,12 +1,11 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:pruebalogin/screens/register.dart';
-import 'package:pruebalogin/google_sign_in/google_sign_in.dart';
-
+import 'package:list_movies_series/screens/home.dart';
+import 'package:list_movies_series/screens/register.dart';
+import 'package:list_movies_series/google_sign_in/google_sign_in.dart';
 
 class LoginPage extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,12 +27,13 @@ class LoginPage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Expanded(child: Column(
+            Expanded(
+                child: Column(
               children: [
                 Container(
                     margin: EdgeInsets.only(bottom: 100),
                     child: CircleAvatar(
-                        backgroundImage: AssetImage('assets/logo.png'),
+                        backgroundImage: AssetImage('assets/images/logo.png'),
                         // Ruta de la imagen de logo en el directorio de assets
                         radius: 70,
                         child: Container(
@@ -117,7 +117,10 @@ class LoginPage extends StatelessWidget {
                 SizedBox(width: 20.0),
                 ElevatedButton(
                   onPressed: () {
-                    // Acción al presionar el botón de inicio de sesión
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Home()),
+                    );
                   },
                   child: Text('Iniciar sesión'),
                 ),
@@ -148,5 +151,3 @@ class LoginPage extends StatelessWidget {
     );
   }
 }
-
-
