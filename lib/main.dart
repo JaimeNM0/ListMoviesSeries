@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:list_movies_series/google_sign_in/google_sign_in.dart';
+import 'package:list_movies_series/providers/series_details_api_provider.dart';
 import 'package:list_movies_series/providers/series_profile_provider.dart';
+import 'package:list_movies_series/screens/details.dart';
 import 'package:list_movies_series/screens/home.dart';
 import 'package:list_movies_series/screens/login.dart';
 import 'package:list_movies_series/screens/seeker.dart';
@@ -18,6 +20,7 @@ class Gestor extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => SeriesProfileProvider()),
+        ChangeNotifierProvider(create: (_) => SeriesDetailsApiProvider()),
       ],
       child: MyApp(),
     );
@@ -40,6 +43,7 @@ class MyApp extends StatelessWidget {
         '/login': (context) => LoginPage(),
         '/google_sign': (context) => GoogleSignInScreen(),
         '/home': (context) => Home(),
+        //'/details': (context) => DetailsSeries(),
         '/seeker': (context) => Seeker(),
       },
       theme: ThemeData(

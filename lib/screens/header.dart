@@ -48,10 +48,13 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 }
 
-class CustomAppBarDetails extends StatelessWidget implements PreferredSizeWidget {
-  final String title;
+class CustomAppBarDetails extends StatelessWidget
+    implements PreferredSizeWidget {
+  String title;
 
-  const CustomAppBarDetails({Key? key, required this.title}) : super(key: key);
+  CustomAppBarDetails({Key? key, String? title})
+      : title = (title != null && title.isNotEmpty) ? title : 'Invitado',
+        super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -60,13 +63,12 @@ class CustomAppBarDetails extends StatelessWidget implements PreferredSizeWidget
       actions: [
         IconButton(
           icon: Icon(Icons.settings),
-          onPressed: () {
-          },
+          onPressed: () {},
         ),
       ],
     );
   }
-  
+
   @override
   // TODO: implement preferredSize
   Size get preferredSize => throw UnimplementedError();

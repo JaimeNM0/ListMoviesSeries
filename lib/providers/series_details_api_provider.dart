@@ -4,29 +4,22 @@ import 'package:list_movies_series/models/series_details_api_models.dart';
 import 'dart:convert';
 
 class SeriesDetailsApiProvider extends ChangeNotifier {
-  //String search;
-  String url = 'https://www.episodate.com/api/show-details?q=';
-  List<SeriesDetailsApi>? listadoSeries = [];
+  String urlBasic = 'https://www.episodate.com/api/show-details?q=';//48879';
 
   SeriesDetailsApiProvider();
 
-  Future<List<SeriesDetailsApi>?> getListaSeries(String? search) async {
-    url = url + search!;
-    
-    listadoSeries!.clear();
+  Future<SeriesDetailsApi> getListaSeries(String? search) async {
+    String url = urlBasic + search!;
 
     Uri miUrl = Uri.parse(url);
     final respuesta = await http.get(miUrl);
 
     final Map<String, dynamic> mapaSeries = jsonDecode(respuesta.body);
-    final List<dynamic> seriesData = mapaSeries['tv_shows'];
+    final Map<String, dynamic> serieJson = mapaSeries['tvShow'];
 
-    for (var seriesJson in seriesData) {
-      final series = SeriesDetailsApi.fromJson(seriesJson);
-      listadoSeries?.add(series);
-    }
+    SeriesDetailsApi serieDetails = SeriesDetailsApi.fromJson(serieJson);
 
     notifyListeners();
-    return listadoSeries;
+    return serieDetails;
   }
 }
