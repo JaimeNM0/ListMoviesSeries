@@ -4,6 +4,7 @@ import 'package:list_movies_series/google_sign_in/google_sign_in.dart';
 import 'package:list_movies_series/providers/series_profile_provider.dart';
 import 'package:list_movies_series/screens/home.dart';
 import 'package:list_movies_series/screens/login.dart';
+import 'package:list_movies_series/screens/register.dart';
 import 'package:list_movies_series/screens/seeker.dart';
 import 'package:provider/provider.dart';
 
@@ -44,9 +45,11 @@ class MyApp extends StatelessWidget {
       initialRoute: '/login',
       routes: {
         '/login': (context) => LoginPage(),
+        '/register': (context) => RegisterPage(),
         '/google_sign': (context) => GoogleSignInScreen(),
         '/home': (context) => Home(),
         '/seeker': (context) => Seeker(),
+        
       },
       theme: ThemeData(
         primarySwatch: Colors.purple, // Cambia el color primario aquí
