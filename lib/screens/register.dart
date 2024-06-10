@@ -1,13 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:list_movies_series/screens/home.dart';
+import 'package:list_movies_series/screens/register.dart';
+import 'package:list_movies_series/google_sign_in/google_sign_in.dart';
 
-class RegisterPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
+  @override
+  _LoginPageState createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  bool isChecked = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar:null,
-        body: Expanded(
-            child: Container(
-          decoration: new BoxDecoration(
+      appBar: null,
+      body: SingleChildScrollView(
+        child: Container(
+          decoration: BoxDecoration(
             gradient: LinearGradient(
               begin: FractionalOffset.topCenter,
               end: FractionalOffset.bottomCenter,
@@ -19,140 +29,139 @@ class RegisterPage extends StatelessWidget {
               ],
             ),
           ),
+          padding: EdgeInsets.all(20.0),
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Expanded(
-                child: Container(
-                  margin: EdgeInsets.only( top:20,left: 100.0, right: 100.0),
-                  child: Column(
-                    children: [
-                      Container(
-                          margin: EdgeInsets.only( bottom: 50),
-                          child: CircleAvatar(
-                              backgroundImage: AssetImage('assets/images/logo.png'),
-                              // Ruta de la imagen de logo en el directorio de assets
-                              radius: 70,
-                              child: Container(
-                                alignment: Alignment.topCenter,
-                                decoration: BoxDecoration(
-                                  border: Border.all(
-                                    color: Color.fromARGB(255, 218, 216, 216),
-                                    width: 4.0,
-                                  ),
-                                  borderRadius: BorderRadius.circular(
-                                      70), // Change the radius value to whatever you desire
-                                ),
-                              ))),
-                      Container(
-                        child: TextField(
-                          decoration: InputDecoration(
-                            labelText: 'Nick',
-                            labelStyle:
-                                TextStyle(color: Colors.white, fontSize: 10),
+              Column(
+                children: [
+                  Container(
+                    margin: EdgeInsets.only(top: 20),
+                    child: CircleAvatar(
+                      backgroundImage: AssetImage('assets/images/logo.png'),
+                      radius: 60,
+                      child: Container(
+                        alignment: Alignment.topCenter,
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                            color: Color.fromARGB(255, 218, 216, 216),
+                            width: 4.0,
                           ),
-                          style: TextStyle(
-                              color: Colors
-                                  .white), // Cambia el color del texto ingresado
+                          borderRadius: BorderRadius.circular(60),
                         ),
                       ),
-                      Container(
-                        child: TextField(
-                          decoration: InputDecoration(
-                            labelText: 'Nombre',
-                            labelStyle:
-                                TextStyle(color: Colors.white, fontSize: 10),
-                          ),
-                          style: TextStyle(
-                              color: Colors
-                                  .white), // Cambia el color del texto ingresado
-                        ),
-                      ),
-                      Container(
-                        child: TextField(
-                          decoration: InputDecoration(
-                            labelText: 'Apellidos',
-                            labelStyle:
-                                TextStyle(color: Colors.white, fontSize: 10),
-                          ),
-                          style: TextStyle(
-                              color: Colors
-                                  .white), // Cambia el color del texto ingresado
-                        ),
-                      ),
-                      Container(
-                        child: TextField(
-                          decoration: InputDecoration(
-                            labelText: 'Género',
-                            labelStyle:
-                                TextStyle(color: Colors.white, fontSize: 10),
-                          ),
-                          style: TextStyle(
-                              color: Colors
-                                  .white), // Cambia el color del texto ingresado
-                        ),
-                      ),
-                      Container(
-                        child: TextField(
-                          decoration: InputDecoration(
-                            labelText: 'Teléfono',
-                            labelStyle:
-                                TextStyle(color: Colors.white, fontSize: 10),
-                          ),
-                          style: TextStyle(
-                              color: Colors
-                                  .white), // Cambia el color del texto ingresado
-                        ),
-                      ),
-                      Container(
-                        child: TextField(
-                          decoration: InputDecoration(
-                            labelText: 'Correo electrónico',
-                            labelStyle:
-                                TextStyle(color: Colors.white, fontSize: 10),
-                          ),
-                          style: TextStyle(
-                              color: Colors
-                                  .white), // Cambia el color del texto ingresado
-                        ),
-                      ),
-                      Container(
-                        child: TextField(
-                          decoration: InputDecoration(
-                            labelText: 'Contraseña',
-                            labelStyle:
-                                TextStyle(color: Colors.white, fontSize: 10),
-                          ),
-                          style: TextStyle(
-                              color: Colors
-                                  .white), // Cambia el color del texto ingresado
-                        ),
-                      ),
-                      Container(
-                        child: TextField(
-                          decoration: InputDecoration(
-                            labelText: 'Confirmar Contraseña',
-                            labelStyle:
-                                TextStyle(color: Colors.white, fontSize: 10),
-                          ),
-                          style: TextStyle(
-                              color: Colors
-                                  .white), // Cambia el color del texto ingresado
-                        ),
-                      ),
-                      Container(
-                       margin: EdgeInsets.only(top:20),
-                        child: ElevatedButton(
-                          onPressed: () {
-                            // Acción al presionar el botón de inicio de sesión
-                          },
-                          child: Text('Registrarse'),
-                        ),
-                      )
-                    ],
+                    ),
                   ),
-              ))
+                  Container(
+                    width: 400.0,
+                    margin: EdgeInsets.only(bottom: 5.0),
+                    padding: EdgeInsets.all(20.0),
+                    child: Column(
+                      children: [
+                        Container(
+                          child: TextField(
+                            decoration: InputDecoration(
+                              labelText: 'Correo electrónico',
+                              labelStyle:
+                                  TextStyle(color: Colors.white, fontSize: 15),
+                            ),
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        ),
+                        Container(
+                          child: TextField(
+                            obscureText: true,
+                            decoration: InputDecoration(
+                              labelText: 'Contraseña',
+                              labelStyle: TextStyle(color: Colors.white),
+                            ),
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Container(
+                    margin: EdgeInsets.only(left: 50, bottom: 10),
+                    child: Column(
+                      children: [
+                        Align(
+                          alignment: Alignment.centerRight,
+                          child: Text(
+                            '¿Se Olvidó de la Contraseña?',
+                            style: TextStyle(
+                                color: Color.fromARGB(250, 104, 58, 183),
+                                fontSize: 15),
+                          ),
+                        ),
+                        Row(
+                          children: [
+                            Container(
+                              padding: EdgeInsets.all(10.0),
+                              child: Row(
+                                children: [
+                                  Checkbox(
+                                    value: isChecked,
+                                    checkColor: Colors
+                                        .white, // Color del check cuando está activo
+                                    activeColor: isChecked
+                                        ? Colors.purple
+                                        : Colors
+                                            .transparent, // Color del fondo del checkbox cuando está activo o transparente cuando está desactivado
+                                    onChanged: (value) {
+                                      setState(() {
+                                        isChecked = value!;
+                                      });
+                                    },
+                                  ),
+                                  Text(
+                                    'Recordar contraseña',
+                                    style: TextStyle(
+                                        color: Colors.white, fontSize: 15),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(width: 20.0),
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Home()),
+                      );
+                    },
+                    child: Text('Iniciar sesión'),
+                  ),
+                  SizedBox(height: 20.0),
+                  ElevatedButton(
+                    onPressed: () {},
+                    child: Text('Iniciar sesión con Google'),
+                  ),
+                  SizedBox(height: 20.0),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => LoginPage()),
+                      );
+                    },
+                    child: Container(
+                      margin: EdgeInsets.only(
+                          bottom: 60), // Margen solo hacia abajo
+                      child: Text('Registrarse'),
+                    ),
+                  ),
+                ],
+              ),
             ],
           ),
-        )));
+        ),
+      ),
+    );
   }
 }

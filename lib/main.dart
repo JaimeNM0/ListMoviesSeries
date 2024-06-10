@@ -1,17 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart'; // Importa el paquete para controlar la orientación de la pantalla
 import 'package:list_movies_series/google_sign_in/google_sign_in.dart';
 import 'package:list_movies_series/providers/series_profile_provider.dart';
 import 'package:list_movies_series/screens/home.dart';
 import 'package:list_movies_series/screens/login.dart';
 import 'package:list_movies_series/screens/seeker.dart';
-//import 'package:list_movies_series/providers/service.dart';
 import 'package:provider/provider.dart';
-//import 'package:list_movies_series/screens/pruebaFuture.dart';
 
-void main() => runApp(const Gestor());
+void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation
+        .portraitUp, // Solo permite orientación vertical hacia arriba
+    DeviceOrientation
+        .portraitDown, // Solo permite orientación vertical hacia abajo
+  ]);
+  runApp(const Gestor());
+}
 
 class Gestor extends StatelessWidget {
-  const Gestor({super.key});
+  const Gestor({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +27,7 @@ class Gestor extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (_) => SeriesProfileProvider()),
       ],
-      child: MyApp(),
+      child: const MyApp(),
     );
   }
 }
@@ -34,17 +42,14 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: _title,
       initialRoute: '/login',
-
       routes: {
-        //'/':(context) => MyApp(),
         '/login': (context) => LoginPage(),
         '/google_sign': (context) => GoogleSignInScreen(),
         '/home': (context) => Home(),
         '/seeker': (context) => Seeker(),
       },
       theme: ThemeData(
-        primarySwatch: Colors.purple, // Change the primary color here
-        //backgroundColor: Colors.transparent,
+        primarySwatch: Colors.purple, // Cambia el color primario aquí
       ),
       home: LoginPage(),
     );
