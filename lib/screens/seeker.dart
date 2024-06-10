@@ -25,20 +25,18 @@ class Seeker extends StatelessWidget {
       home: Scaffold(
         appBar: CustomAppBar(title: usuario["nick"]),
         drawer: CustomDrawer(usuario: usuario),
-        body: Container(
-          color: const Color.fromRGBO(76, 32, 96, 1),
-          child: const Padding(
-            padding: EdgeInsets.only(
-              left: 10.0,
-              top: 10.0,
-            ),
-            child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  Text('Buscador'),
-                  Text('Página'),
-                ],
-              ),
+        backgroundColor: const Color.fromRGBO(76, 32, 96, 1),
+        body: const Padding(
+          padding: EdgeInsets.only(
+            left: 10.0,
+            top: 10.0,
+          ),
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                Text('Buscador'),
+                Text('Página'),
+              ],
             ),
           ),
         ),

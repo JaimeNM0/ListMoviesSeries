@@ -22,15 +22,17 @@ class DetailsSeries extends StatelessWidget {
 
     return MaterialApp(
       home: Scaffold(
-        appBar: CustomAppBar(title: usuario['nick'],),
-        body: Container(
-          color: const Color.fromRGBO(76, 32, 96, 1),
+        appBar: CustomAppBar(
+          title: usuario['nick'],
+        ),
+        backgroundColor: const Color.fromRGBO(76, 32, 96, 1),
+        body: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.only(
-              left: 10.0,
-              top: 10.0,
+            padding: const EdgeInsets.all(15.0),
+            child: FutureBuilderDetails(
+              provider: detailsSeriesDetailsApiProfile,
+              serie: serie,
             ),
-            child: FutureBuilderDetails(provider: detailsSeriesDetailsApiProfile, serie: serie),
           ),
         ),
       ),
@@ -42,7 +44,8 @@ class FutureBuilderDetails extends StatelessWidget {
   final provider;
   final String serie;
 
-  const FutureBuilderDetails({super.key, required this.provider, required this.serie});
+  const FutureBuilderDetails(
+      {super.key, required this.provider, required this.serie});
 
   @override
   Widget build(BuildContext context) {
@@ -54,14 +57,99 @@ class FutureBuilderDetails extends StatelessWidget {
           } else {
             if (snapshot.hasData) {
               print(snapshot.data?.id);
-              /*return Container(
-                margin: const EdgeInsets.symmetric(vertical: 10),
-                height: 300,
-                child: _buildCard(snapshot.requireData, context),
+              return _buildDetailsSeries(snapshot.requireData, context);/*Container(
+                child: _buildDetailsSeries(snapshot.requireData, context),
               );*/
             }
             return const Text("Error no se ha encontrado nada.");
           }
         });
   }
+}
+
+Widget _buildDetailsSeries(SeriesDetailsApi serie, BuildContext context) {
+  return Column(
+    children: [
+      Row(
+        children: [
+          ClipRRect(
+            borderRadius: BorderRadius.circular(20.0),
+            child: Container(
+              width: 180.0,
+              height: 240.0,
+              foregroundDecoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20.0),
+                border: Border.all(
+                  color: Color.fromARGB(255, 201, 200, 200),
+                  width: 3.0,
+                ),
+              ),
+              child: Image.network(
+                serie.poster,
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
+          Expanded(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text(
+                  'Note',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16.0,
+                    fontFamily: 'Roboto',
+                  ),
+                ),
+                Text(
+                  serie.note,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 24.0,
+                    fontFamily: 'Roboto',
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+      SizedBox(height: 20),
+      Text(
+        serie.title,
+        textAlign: TextAlign.center,
+        style: TextStyle(
+          color: Colors.white,
+          fontSize: 28.0,
+          fontFamily: 'Roboto',
+        ),
+      ),
+      SizedBox(height: 10),
+      Text(
+        serie.description,
+        textAlign: TextAlign.center,
+        style: TextStyle(
+          color: Colors.white,
+          fontSize: 14.0,
+          fontFamily: 'Roboto',
+        ),
+        maxLines: null,
+        overflow: TextOverflow.visible,
+      ),
+      SizedBox(height: 10),
+      Text(
+        serie.status,
+        textAlign: TextAlign.center,
+        style: TextStyle(
+          color: Colors.white,
+          fontSize: 16.0,
+          fontFamily: 'Roboto',
+        ),
+        maxLines: null,
+        overflow: TextOverflow.visible,
+      ),
+    ],
+  );
 }

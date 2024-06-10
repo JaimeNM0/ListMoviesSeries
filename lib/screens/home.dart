@@ -28,42 +28,40 @@ class Home extends StatelessWidget {
       home: Scaffold(
         appBar: CustomAppBar(title: usuario["nick"]),
         drawer: CustomDrawer(usuario: usuario),
-        body: Container(
-          color: const Color.fromRGBO(76, 32, 96, 1),
-          child: Padding(
-            padding: const EdgeInsets.only(
-              left: 10.0,
-              top: 10.0,
-            ),
-            child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  const Align(
-                    alignment: Alignment.topLeft,
-                    child: Text(
-                      "Mejores calificaciones:",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 22.0,
-                        fontFamily: 'Roboto',
-                      ),
+        backgroundColor: const Color.fromRGBO(76, 32, 96, 1),
+        body: Padding(
+          padding: const EdgeInsets.only(
+            left: 10.0,
+            top: 10.0,
+          ),
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                const Align(
+                  alignment: Alignment.topLeft,
+                  child: Text(
+                    "Mejores calificaciones:",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 22.0,
+                      fontFamily: 'Roboto',
                     ),
                   ),
-                  ListadoSeries(list: listSeriesProfile),
-                  const Align(
-                    alignment: Alignment.topLeft,
-                    child: Text(
-                      "Mejores calificaciones:",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 22.0,
-                        fontFamily: 'Roboto',
-                      ),
+                ),
+                ListadoSeries(list: listSeriesProfile),
+                const Align(
+                  alignment: Alignment.topLeft,
+                  child: Text(
+                    "Mejores calificaciones:",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 22.0,
+                      fontFamily: 'Roboto',
                     ),
                   ),
-                  ListadoSeries(list: listSeriesProfile),
-                ],
-              ),
+                ),
+                ListadoSeries(list: listSeriesProfile),
+              ],
             ),
           ),
         ),
