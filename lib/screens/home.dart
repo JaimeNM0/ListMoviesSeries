@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:list_movies_series/models/series_profile_models.dart';
 import 'package:list_movies_series/providers/series_profile_provider.dart';
+import 'package:list_movies_series/screens/drawer.dart';
 //import 'package:list_movies_series/screens/drawer.dart';
 import 'package:provider/provider.dart';
 import 'header.dart';
@@ -25,7 +26,7 @@ class Home extends StatelessWidget {
       //title: title,
       home: Scaffold(
         appBar: CustomAppBar(title: usuario["nick"]),
-        //drawer: CustomDrawer(usuario: usuario),
+        drawer: CustomDrawer(usuario: usuario),
         body: Container(
           color: const Color.fromRGBO(76, 32, 96, 1),
           child: Padding(
