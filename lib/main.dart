@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:list_movies_series/google_sign_in/google_sign_in.dart';
 import 'package:list_movies_series/providers/series_profile_provider.dart';
-import 'package:list_movies_series/screens/Home.dart';
+import 'package:list_movies_series/screens/home.dart';
 import 'package:list_movies_series/screens/login.dart';
+import 'package:list_movies_series/screens/seeker.dart';
 //import 'package:list_movies_series/providers/service.dart';
 import 'package:provider/provider.dart';
 //import 'package:list_movies_series/screens/pruebaFuture.dart';
@@ -39,6 +40,7 @@ class MyApp extends StatelessWidget {
         '/login': (context) => LoginPage(),
         '/google_sign': (context) => GoogleSignInScreen(),
         '/home': (context) => Home(),
+        '/seeker': (context) => Seeker(),
       },
       theme: ThemeData(
         primarySwatch: Colors.purple, // Change the primary color here

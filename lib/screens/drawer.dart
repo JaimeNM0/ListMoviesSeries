@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:list_movies_series/screens/home.dart';
+import 'package:list_movies_series/screens/seeker.dart';
+//import 'package:list_movies_series/main.dart';
 
 class CustomDrawer extends StatelessWidget {
   static const Map<String, String> invitado = {
@@ -50,7 +53,11 @@ class CustomDrawer extends StatelessWidget {
                   color: Colors.white,
                 ),
                 onTap: () {
-                  print("Ir a Home");
+                  Navigator.pop(context);
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const Home()),
+                  );
                 }),
             ListTile(
                 title: const Text(
@@ -66,7 +73,11 @@ class CustomDrawer extends StatelessWidget {
                   color: Colors.white,
                 ),
                 onTap: () {
-                  print("Ir a Profile Information");
+                  Navigator.pop(context);
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const Seeker()),
+                  );
                 }),
             ListTile(
                 title: const Text(
