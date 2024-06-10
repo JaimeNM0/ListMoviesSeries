@@ -6,8 +6,13 @@ import 'package:list_movies_series/screens/login.dart';
 //import 'package:list_movies_series/providers/service.dart';
 import 'package:provider/provider.dart';
 //import 'package:list_movies_series/screens/pruebaFuture.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-void main() => runApp(const Gestor());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  runApp( const Gestor());
+}
 
 class Gestor extends StatelessWidget {
   const Gestor({super.key});
