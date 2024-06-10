@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:list_movies_series/models/series_details_api_models.dart';
 import 'package:list_movies_series/providers/series_details_api_provider.dart';
+import 'package:list_movies_series/screens/drawer.dart';
 import 'package:list_movies_series/screens/header.dart';
 import 'package:list_movies_series/screens/header.dart';
 import 'package:provider/provider.dart';
@@ -25,6 +26,7 @@ class DetailsSeries extends StatelessWidget {
         appBar: CustomAppBar(
           title: usuario['nick'],
         ),
+        drawer: CustomDrawer(usuario: usuario),
         backgroundColor: const Color.fromRGBO(76, 32, 96, 1),
         body: SingleChildScrollView(
           child: Padding(
