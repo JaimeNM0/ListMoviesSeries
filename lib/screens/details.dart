@@ -21,20 +21,18 @@ class DetailsSeries extends StatelessWidget {
       'correo': 'juan@gmail.com',
     };
 
-    return MaterialApp(
-      home: Scaffold(
-        appBar: CustomAppBar(
-          title: usuario['nick'],
-        ),
-        drawer: CustomDrawer(usuario: usuario),
-        backgroundColor: const Color.fromRGBO(76, 32, 96, 1),
-        body: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.all(15.0),
-            child: FutureBuilderDetails(
-              provider: detailsSeriesDetailsApiProfile,
-              serie: serie,
-            ),
+    return Scaffold(
+      appBar: CustomAppBar(
+        title: usuario['nick'],
+      ),
+      drawer: CustomDrawer(usuario: usuario),
+      backgroundColor: const Color.fromRGBO(76, 32, 96, 1),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(15.0),
+          child: FutureBuilderDetails(
+            provider: detailsSeriesDetailsApiProfile,
+            serie: serie,
           ),
         ),
       ),
@@ -58,8 +56,9 @@ class FutureBuilderDetails extends StatelessWidget {
             return const CircularProgressIndicator();
           } else {
             if (snapshot.hasData) {
-              print(snapshot.data?.id);
-              return _buildDetailsSeries(snapshot.requireData, context);/*Container(
+              //print(snapshot.data?.id);
+              return _buildDetailsSeries(snapshot.requireData,
+                  context); /*Container(
                 child: _buildDetailsSeries(snapshot.requireData, context),
               );*/
             }

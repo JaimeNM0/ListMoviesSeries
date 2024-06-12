@@ -52,6 +52,18 @@ class MyApp extends StatelessWidget {
         //'/details': (context) => DetailsSeries(),
         '/seeker': (context) => Seeker(),
       },
+      onGenerateRoute: (settings) {
+        if (settings.name == '/detailsSeries') {
+          final id = settings.arguments as String;
+          return MaterialPageRoute(
+            builder: (context) {
+              return DetailsSeries(serie: id);
+            },
+          );
+        }
+        assert(false, 'Need to implement ${settings.name}');
+        return null;
+      },
       theme: ThemeData(
         primarySwatch: Colors.purple, // Cambia el color primario aquí
       ),

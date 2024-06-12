@@ -4,9 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:list_movies_series/models/series_profile_models.dart';
 import 'package:list_movies_series/providers/series_profile_provider.dart';
-import 'package:list_movies_series/screens/details.dart';
 import 'package:list_movies_series/screens/drawer.dart';
-//import 'package:list_movies_series/screens/drawer.dart';
 import 'package:provider/provider.dart';
 import 'package:list_movies_series/screens/header.dart';
 
@@ -23,9 +21,9 @@ class Home extends StatelessWidget {
       'correo': 'juan@gmail.com',
     };
 
-    return MaterialApp(
-      //title: title,
-      home: Scaffold(
+    return WillPopScope(
+      onWillPop: _onWillPopScope,
+      child: Scaffold(
         appBar: CustomAppBar(title: usuario["nick"]),
         drawer: CustomDrawer(usuario: usuario),
         backgroundColor: const Color.fromRGBO(76, 32, 96, 1),
@@ -68,6 +66,10 @@ class Home extends StatelessWidget {
       ),
     );
   }
+
+  Future<bool> _onWillPopScope() async {
+    return false;
+  }
 }
 
 class ListadoSeries extends StatelessWidget {
@@ -105,11 +107,7 @@ class ListadoSeries extends StatelessWidget {
 Widget _buildCard(Series series, BuildContext context) {
   return GestureDetector(
     onTap: () {
-      Navigator.push(
-        context,
-        MaterialPageRoute(
-            builder: (context) => DetailsSeries(serie: series.id.toString())),
-      );
+      Navigator.pushNamed(context, '/detailsSeries', arguments: series.id);
     },
     child: SizedBox(
       width: 180.0,
@@ -195,7 +193,6 @@ Widget _buildCard(Series series, BuildContext context) {
                     ),
                   ],
                 ),
-                //Text(series.id.toString()),
               ],
             ),
           ),

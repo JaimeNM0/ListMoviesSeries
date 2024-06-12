@@ -53,11 +53,8 @@ class CustomDrawer extends StatelessWidget {
                   color: Colors.white,
                 ),
                 onTap: () {
-                  Navigator.pop(context);
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const Home()),
-                  );
+                  Scaffold.of(context).closeDrawer();
+                  Navigator.pushNamed(context, '/home');
                 }),
             ListTile(
                 title: const Text(
@@ -73,11 +70,8 @@ class CustomDrawer extends StatelessWidget {
                   color: Colors.white,
                 ),
                 onTap: () {
-                  Navigator.pop(context);
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const Seeker()),
-                  );
+                  Scaffold.of(context).closeDrawer();
+                  Navigator.pushNamed(context, '/seeker');
                 }),
             ListTile(
                 title: const Text(

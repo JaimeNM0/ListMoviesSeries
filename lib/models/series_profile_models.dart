@@ -1,5 +1,5 @@
 class Series {
-  final int id;
+  final String id;
   final String name;
   final String startDate;
   final String image;
@@ -12,7 +12,7 @@ class Series {
 
   factory Series.fromJson(Map<String, dynamic> json) {
     return Series(
-      id: json['id'],
+      id: json['permalink'],
       name: json['name'],
       startDate: json['start_date'],
       image: json['image_thumbnail_path'],

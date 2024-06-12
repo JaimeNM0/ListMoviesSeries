@@ -20,24 +20,21 @@ class Seeker extends StatelessWidget {
       'correo': 'juan@gmail.com',
     };
 
-    return MaterialApp(
-      //title: title,
-      home: Scaffold(
-        appBar: CustomAppBar(title: usuario["nick"]),
-        drawer: CustomDrawer(usuario: usuario),
-        backgroundColor: const Color.fromRGBO(76, 32, 96, 1),
-        body: const Padding(
-          padding: EdgeInsets.only(
-            left: 10.0,
-            top: 10.0,
-          ),
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                Text('Buscador'),
-                Text('Página'),
-              ],
-            ),
+    return Scaffold(
+      appBar: CustomAppBar(title: usuario["nick"]),
+      drawer: CustomDrawer(usuario: usuario),
+      backgroundColor: const Color.fromRGBO(76, 32, 96, 1),
+      body: const Padding(
+        padding: EdgeInsets.only(
+          left: 10.0,
+          top: 10.0,
+        ),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Text('Buscador'),
+              Text('Página'),
+            ],
           ),
         ),
       ),
