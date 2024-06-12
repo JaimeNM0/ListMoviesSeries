@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:list_movies_series/utils/fuction.dart';
+import 'package:list_movies_series/utils/function.dart';
 
 class CustomDrawer extends StatelessWidget {
   static const Map<String, String> invitado = {

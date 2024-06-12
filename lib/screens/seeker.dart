@@ -5,8 +5,7 @@ import 'package:flutter/widgets.dart';
 import 'package:list_movies_series/models/series_profile_models.dart';
 import 'package:list_movies_series/providers/series_profile_provider.dart';
 import 'package:list_movies_series/screens/drawer.dart';
-import 'package:list_movies_series/utils/fuction.dart';
-//import 'package:list_movies_series/screens/drawer.dart';
+import 'package:list_movies_series/utils/function.dart';
 import 'package:provider/provider.dart';
 import 'header.dart';
 
