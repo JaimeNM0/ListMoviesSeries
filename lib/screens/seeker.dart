@@ -24,7 +24,7 @@ class Seeker extends StatelessWidget {
     return Scaffold(
       appBar: CustomAppBar(title: usuario["nick"]),
       drawer: CustomDrawer(usuario: usuario),
-      backgroundColor: const Color.fromRGBO(76, 32, 96, 1),
+      backgroundColor: colorPurple,
       body: Padding(
         padding: const EdgeInsets.only(
           left: 10.0,

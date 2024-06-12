@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:list_movies_series/utils/fuction.dart';
+import 'package:list_movies_series/utils/function.dart';
 
 class RegisterPage extends StatelessWidget {
   @override
@@ -7,17 +7,8 @@ class RegisterPage extends StatelessWidget {
     return Scaffold(
       appBar: null,
       body: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: FractionalOffset.topCenter,
-            end: FractionalOffset.bottomCenter,
-            colors: <Color>[
-              Color.fromRGBO(252, 92, 92, 1),
-              Color.fromRGBO(252, 68, 172, 1),
-              Color.fromRGBO(228, 84, 244, 1),
-              Color.fromRGBO(156, 84, 244, 1),
-            ],
-          ),
+        decoration: const BoxDecoration(
+          gradient: linearGradientFading,
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,

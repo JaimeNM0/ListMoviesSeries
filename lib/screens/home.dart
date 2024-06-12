@@ -5,7 +5,7 @@ import 'package:flutter/widgets.dart';
 import 'package:list_movies_series/models/series_profile_models.dart';
 import 'package:list_movies_series/providers/series_profile_provider.dart';
 import 'package:list_movies_series/screens/drawer.dart';
-import 'package:list_movies_series/utils/fuction.dart';
+import 'package:list_movies_series/utils/function.dart';
 import 'package:provider/provider.dart';
 import 'package:list_movies_series/screens/header.dart';
 
@@ -27,7 +27,7 @@ class Home extends StatelessWidget {
       child: Scaffold(
         appBar: CustomAppBar(title: usuario["nick"]),
         drawer: CustomDrawer(usuario: usuario),
-        backgroundColor: const Color.fromRGBO(76, 32, 96, 1),
+        backgroundColor: colorPurple,
         body: Padding(
           padding: const EdgeInsets.only(
             left: 10.0,
@@ -111,21 +111,12 @@ Widget _buildCard(Series series, BuildContext context) {
           foregroundDecoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20.0),
             border: Border.all(
-              color: Color.fromARGB(255, 201, 200, 200),
+              color: colorWhiteBorder,
               width: 3.0,
             ),
           ),
           decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              colors: <Color>[
-                Color.fromRGBO(252, 92, 92, 1),
-                Color.fromRGBO(252, 68, 172, 1),
-                Color.fromRGBO(228, 84, 244, 1),
-                Color.fromRGBO(156, 84, 244, 1),
-              ],
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-            ),
+            gradient: linearGradientFading,
             borderRadius: BorderRadius.all(Radius.circular(20.0)),
           ),
           child: Card(
@@ -145,7 +136,7 @@ Widget _buildCard(Series series, BuildContext context) {
                     foregroundDecoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20.0),
                       border: Border.all(
-                        color: Color.fromARGB(255, 201, 200, 200),
+                        color: colorWhiteBorder,
                         width: 3.0,
                       ),
                     ),
@@ -158,7 +149,9 @@ Widget _buildCard(Series series, BuildContext context) {
                 Center(
                   child: Text(
                     series.name,
+                    textAlign: TextAlign.center,
                     style: customTextStyle(),
+                    maxLines: 2,
                   ),
                 ),
                 Row(
@@ -169,7 +162,7 @@ Widget _buildCard(Series series, BuildContext context) {
                       style: customTextStyle(fontSize: 16.0),
                     ),
                     Text(
-                      series.startDate,
+                      changeFormatDate(series.startDate),
                       style: customTextStyle(fontSize: 16.0),
                     ),
                   ],

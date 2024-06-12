@@ -18,7 +18,7 @@ class CustomDrawer extends StatelessWidget {
     return Drawer(
       child: Container(
         //color: const Color(0xFFC427BB),
-        color: const Color.fromRGBO(76, 32, 96, 1),
+        color: colorPurple,
         child: Column(
           children: <Widget>[
             UserAccountsDrawerHeader(

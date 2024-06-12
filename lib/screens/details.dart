@@ -27,7 +27,7 @@ class DetailsSeries extends StatelessWidget {
         title: usuario['nick'],
       ),
       drawer: CustomDrawer(usuario: usuario),
-      backgroundColor: const Color.fromRGBO(76, 32, 96, 1),
+      backgroundColor: colorPurple,
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(15.0),
@@ -57,11 +57,7 @@ class FutureBuilderDetails extends StatelessWidget {
             return const CircularProgressIndicator();
           } else {
             if (snapshot.hasData) {
-              //print(snapshot.data?.id);
-              return _buildDetailsSeries(snapshot.requireData,
-                  context); /*Container(
-                child: _buildDetailsSeries(snapshot.requireData, context),
-              );*/
+              return _buildDetailsSeries(snapshot.requireData, context);
             }
             return const Text("Error no se ha encontrado nada.");
           }
@@ -82,7 +78,7 @@ Widget _buildDetailsSeries(SeriesDetailsApi serie, BuildContext context) {
               foregroundDecoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20.0),
                 border: Border.all(
-                  color: Color.fromARGB(255, 201, 200, 200),
+                  color: colorWhiteBorder,
                   width: 3.0,
                 ),
               ),
@@ -99,19 +95,11 @@ Widget _buildDetailsSeries(SeriesDetailsApi serie, BuildContext context) {
               children: [
                 Text(
                   'Note',
-                  style: customTextStyle(fontSize: 16.0), /*TextStyle(
-                    color: Colors.white,
-                    fontSize: 16.0,
-                    fontFamily: 'Roboto',
-                  ),*/
+                  style: customTextStyle(fontSize: 16.0),
                 ),
                 Text(
                   serie.note,
-                  style: customTextStyle(fontSize: 24.0), /*TextStyle(
-                    color: Colors.white,
-                    fontSize: 24.0,
-                    fontFamily: 'Roboto',
-                  ),*/
+                  style: customTextStyle(fontSize: 24.0),
                 ),
               ],
             ),
@@ -122,32 +110,20 @@ Widget _buildDetailsSeries(SeriesDetailsApi serie, BuildContext context) {
       Text(
         serie.title,
         textAlign: TextAlign.center,
-        style: customTextStyle(fontSize: 28.0), /*TextStyle(
-          color: Colors.white,
-          fontSize: 28.0,
-          fontFamily: 'Roboto',
-        ),*/
+        style: customTextStyle(fontSize: 28.0),
       ),
       SizedBox(height: 10),
       Text(
         serie.description,
         textAlign: TextAlign.center,
-        style: customTextStyle(fontSize: 14.0), /*TextStyle(
-          color: Colors.white,
-          fontSize: 14.0,
-          fontFamily: 'Roboto',
-        ),*/
+        style: customTextStyle(fontSize: 14.0),
         maxLines: null,
       ),
       SizedBox(height: 10),
       Text(
         serie.status,
         textAlign: TextAlign.center,
-        style: customTextStyle(fontSize: 16.0), /*TextStyle(
-          color: Colors.white,
-          fontSize: 16.0,
-          fontFamily: 'Roboto',
-        ),*/
+        style: customTextStyle(fontSize: 16.0),
       ),
     ],
   );
