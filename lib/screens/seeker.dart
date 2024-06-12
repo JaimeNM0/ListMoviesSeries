@@ -5,6 +5,7 @@ import 'package:flutter/widgets.dart';
 import 'package:list_movies_series/models/series_profile_models.dart';
 import 'package:list_movies_series/providers/series_profile_provider.dart';
 import 'package:list_movies_series/screens/drawer.dart';
+import 'package:list_movies_series/utils/fuction.dart';
 //import 'package:list_movies_series/screens/drawer.dart';
 import 'package:provider/provider.dart';
 import 'header.dart';
@@ -24,16 +25,16 @@ class Seeker extends StatelessWidget {
       appBar: CustomAppBar(title: usuario["nick"]),
       drawer: CustomDrawer(usuario: usuario),
       backgroundColor: const Color.fromRGBO(76, 32, 96, 1),
-      body: const Padding(
-        padding: EdgeInsets.only(
+      body: Padding(
+        padding: const EdgeInsets.only(
           left: 10.0,
           top: 10.0,
         ),
         child: SingleChildScrollView(
           child: Column(
             children: [
-              Text('Buscador'),
-              Text('Página'),
+              Text('Buscador', style: customTextStyle(fontSize: 16.0),),
+              Text('Página', style: customTextStyle(fontSize: 16.0),),
             ],
           ),
         ),

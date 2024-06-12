@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:list_movies_series/utils/fuction.dart';
 
 class RegisterPage extends StatelessWidget {
   @override
@@ -48,82 +49,58 @@ class RegisterPage extends StatelessWidget {
                       TextField(
                         decoration: InputDecoration(
                           labelText: 'Nick',
-                          labelStyle:
-                              TextStyle(color: Colors.white, fontSize: 10),
+                          labelStyle: customTextStyle(fontSize: 10.0),
                         ),
-                        style: TextStyle(
-                          color: Colors.white,
-                        ),
+                        style: customTextStyle(fontSize: 16.0),
                       ),
                       TextField(
                         decoration: InputDecoration(
                           labelText: 'Nombre',
-                          labelStyle:
-                              TextStyle(color: Colors.white, fontSize: 10),
+                          labelStyle: customTextStyle(fontSize: 10.0),
                         ),
-                        style: TextStyle(
-                          color: Colors.white,
-                        ),
+                        style: customTextStyle(fontSize: 16.0),
                       ),
                       TextField(
                         decoration: InputDecoration(
                           labelText: 'Apellidos',
-                          labelStyle:
-                              TextStyle(color: Colors.white, fontSize: 10),
+                          labelStyle: customTextStyle(fontSize: 10.0),
                         ),
-                        style: TextStyle(
-                          color: Colors.white,
-                        ),
+                        style: customTextStyle(fontSize: 16.0),
                       ),
                       TextField(
                         decoration: InputDecoration(
                           labelText: 'Género',
-                          labelStyle:
-                              TextStyle(color: Colors.white, fontSize: 10),
+                          labelStyle: customTextStyle(fontSize: 10.0),
                         ),
-                        style: TextStyle(
-                          color: Colors.white,
-                        ),
+                        style: customTextStyle(fontSize: 16.0),
                       ),
                       TextField(
                         decoration: InputDecoration(
                           labelText: 'Teléfono',
-                          labelStyle:
-                              TextStyle(color: Colors.white, fontSize: 10),
+                          labelStyle: customTextStyle(fontSize: 10.0),
                         ),
-                        style: TextStyle(
-                          color: Colors.white,
-                        ),
+                        style: customTextStyle(fontSize: 16.0),
                       ),
                       TextField(
                         decoration: InputDecoration(
                           labelText: 'Correo electrónico',
-                          labelStyle:
-                              TextStyle(color: Colors.white, fontSize: 10),
+                          labelStyle: customTextStyle(fontSize: 10.0),
                         ),
-                        style: TextStyle(
-                          color: Colors.white,
-                        ),
+                        style: customTextStyle(fontSize: 16.0),
                       ),
                       TextField(
                         decoration: InputDecoration(
                           labelText: 'Contraseña',
-                          labelStyle:
-                              TextStyle(color: Colors.white, fontSize: 10),
+                          labelStyle: customTextStyle(fontSize: 10.0),
                         ),
-                        style: TextStyle(
-                          color: Colors.white,
-                        ),
+                        style: customTextStyle(fontSize: 16.0),
                       ),
                       TextField(
                         decoration: InputDecoration(
                           labelText: 'Confirmar Contraseña',
-                          labelStyle:
-                              TextStyle(color: Colors.white, fontSize: 10),
+                          labelStyle: customTextStyle(fontSize: 10.0),
                         ),
-                        style: TextStyle(
-                          color: Colors.white,
-                        ),
+                        style: customTextStyle(fontSize: 16.0),
                       ),
                       SizedBox(height: 20),
                     ],
@@ -133,7 +110,7 @@ class RegisterPage extends StatelessWidget {
             ),
             ElevatedButton(
               onPressed: () {
-                // Acción al presionar el botón de registrarse
+                Navigator.pushNamed(context, '/home');
               },
               child: Text('Registrarse'),
             ),

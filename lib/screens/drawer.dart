@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:list_movies_series/screens/home.dart';
-import 'package:list_movies_series/screens/seeker.dart';
-//import 'package:list_movies_series/main.dart';
+import 'package:list_movies_series/utils/fuction.dart';
 
 class CustomDrawer extends StatelessWidget {
   static const Map<String, String> invitado = {
@@ -40,13 +38,9 @@ class CustomDrawer extends StatelessWidget {
               accountEmail: Text(usuario["correo"]!),
             ),
             ListTile(
-                title: const Text(
+                title: Text(
                   "Home",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 18.0,
-                    fontFamily: 'Roboto',
-                  ),
+                  style: customTextStyle(),
                 ),
                 leading: const Icon(
                   Icons.home,
@@ -57,13 +51,9 @@ class CustomDrawer extends StatelessWidget {
                   Navigator.pushNamed(context, '/home');
                 }),
             ListTile(
-                title: const Text(
+                title: Text(
                   "Profile Information",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 18.0,
-                    fontFamily: 'Roboto',
-                  ),
+                  style: customTextStyle(),
                 ),
                 leading: const Icon(
                   Icons.person,
@@ -74,13 +64,9 @@ class CustomDrawer extends StatelessWidget {
                   Navigator.pushNamed(context, '/seeker');
                 }),
             ListTile(
-                title: const Text(
+                title: Text(
                   "Settings",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 18.0,
-                    fontFamily: 'Roboto',
-                  ),
+                  style: customTextStyle(),
                 ),
                 leading: const Icon(
                   Icons.settings,
@@ -90,13 +76,9 @@ class CustomDrawer extends StatelessWidget {
                   print("Ir a Settings");
                 }),
             ListTile(
-                title: const Text(
+                title: Text(
                   "Help / FAQ",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 18.0,
-                    fontFamily: 'Roboto',
-                  ),
+                  style: customTextStyle(),
                 ),
                 leading: const Icon(
                   Icons.help,
@@ -106,13 +88,9 @@ class CustomDrawer extends StatelessWidget {
                   print("Ir a Help / FAQ");
                 }),
             ListTile(
-                title: const Text(
+                title: Text(
                   "Logout",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 18.0,
-                    fontFamily: 'Roboto',
-                  ),
+                  style: customTextStyle(),
                 ),
                 leading: const Icon(
                   Icons.logout,

@@ -4,6 +4,7 @@ import 'package:list_movies_series/providers/series_details_api_provider.dart';
 import 'package:list_movies_series/screens/drawer.dart';
 import 'package:list_movies_series/screens/header.dart';
 import 'package:list_movies_series/screens/header.dart';
+import 'package:list_movies_series/utils/fuction.dart';
 import 'package:provider/provider.dart';
 
 class DetailsSeries extends StatelessWidget {
@@ -98,19 +99,19 @@ Widget _buildDetailsSeries(SeriesDetailsApi serie, BuildContext context) {
               children: [
                 Text(
                   'Note',
-                  style: TextStyle(
+                  style: customTextStyle(fontSize: 16.0), /*TextStyle(
                     color: Colors.white,
                     fontSize: 16.0,
                     fontFamily: 'Roboto',
-                  ),
+                  ),*/
                 ),
                 Text(
                   serie.note,
-                  style: TextStyle(
+                  style: customTextStyle(fontSize: 24.0), /*TextStyle(
                     color: Colors.white,
                     fontSize: 24.0,
                     fontFamily: 'Roboto',
-                  ),
+                  ),*/
                 ),
               ],
             ),
@@ -121,35 +122,32 @@ Widget _buildDetailsSeries(SeriesDetailsApi serie, BuildContext context) {
       Text(
         serie.title,
         textAlign: TextAlign.center,
-        style: TextStyle(
+        style: customTextStyle(fontSize: 28.0), /*TextStyle(
           color: Colors.white,
           fontSize: 28.0,
           fontFamily: 'Roboto',
-        ),
+        ),*/
       ),
       SizedBox(height: 10),
       Text(
         serie.description,
         textAlign: TextAlign.center,
-        style: TextStyle(
+        style: customTextStyle(fontSize: 14.0), /*TextStyle(
           color: Colors.white,
           fontSize: 14.0,
           fontFamily: 'Roboto',
-        ),
+        ),*/
         maxLines: null,
-        overflow: TextOverflow.visible,
       ),
       SizedBox(height: 10),
       Text(
         serie.status,
         textAlign: TextAlign.center,
-        style: TextStyle(
+        style: customTextStyle(fontSize: 16.0), /*TextStyle(
           color: Colors.white,
           fontSize: 16.0,
           fontFamily: 'Roboto',
-        ),
-        maxLines: null,
-        overflow: TextOverflow.visible,
+        ),*/
       ),
     ],
   );

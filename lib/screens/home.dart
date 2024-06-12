@@ -5,6 +5,7 @@ import 'package:flutter/widgets.dart';
 import 'package:list_movies_series/models/series_profile_models.dart';
 import 'package:list_movies_series/providers/series_profile_provider.dart';
 import 'package:list_movies_series/screens/drawer.dart';
+import 'package:list_movies_series/utils/fuction.dart';
 import 'package:provider/provider.dart';
 import 'package:list_movies_series/screens/header.dart';
 
@@ -35,27 +36,19 @@ class Home extends StatelessWidget {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                const Align(
+                Align(
                   alignment: Alignment.topLeft,
                   child: Text(
-                    "Mejores calificaciones:",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 22.0,
-                      fontFamily: 'Roboto',
-                    ),
+                    "Más populares:",
+                    style: customTextStyle(fontSize: 22.0),
                   ),
                 ),
                 ListadoSeries(list: listSeriesProfile),
-                const Align(
+                Align(
                   alignment: Alignment.topLeft,
                   child: Text(
                     "Mejores calificaciones:",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 22.0,
-                      fontFamily: 'Roboto',
-                    ),
+                    style: customTextStyle(fontSize: 22.0),
                   ),
                 ),
                 ListadoSeries(list: listSeriesProfile),
@@ -165,11 +158,7 @@ Widget _buildCard(Series series, BuildContext context) {
                 Center(
                   child: Text(
                     series.name,
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 18.0,
-                      fontFamily: 'Roboto',
-                    ),
+                    style: customTextStyle(),
                   ),
                 ),
                 Row(
@@ -177,19 +166,11 @@ Widget _buildCard(Series series, BuildContext context) {
                   children: [
                     Text(
                       "-",
-                      style: const TextStyle(
-                        color: Colors.white,
-                        fontSize: 16.0,
-                        fontFamily: 'Roboto',
-                      ),
+                      style: customTextStyle(fontSize: 16.0),
                     ),
                     Text(
                       series.startDate,
-                      style: const TextStyle(
-                        color: Colors.white,
-                        fontSize: 16.0,
-                        fontFamily: 'Roboto',
-                      ),
+                      style: customTextStyle(fontSize: 16.0),
                     ),
                   ],
                 ),

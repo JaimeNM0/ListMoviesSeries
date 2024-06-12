@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:list_movies_series/screens/home.dart';
 import 'package:list_movies_series/screens/register.dart';
 import 'package:list_movies_series/google_sign_in/google_sign_in.dart';
+import 'package:list_movies_series/utils/fuction.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -62,10 +63,9 @@ class _LoginPageState extends State<LoginPage> {
                           child: TextField(
                             decoration: InputDecoration(
                               labelText: 'Correo electrónico',
-                              labelStyle:
-                                  TextStyle(color: Colors.white, fontSize: 15),
+                              labelStyle: customTextStyle(fontSize: 15.0),
                             ),
-                            style: TextStyle(color: Colors.white),
+                            style: customTextStyle(fontSize: 15.0),
                           ),
                         ),
                         Container(
@@ -73,9 +73,9 @@ class _LoginPageState extends State<LoginPage> {
                             obscureText: true,
                             decoration: InputDecoration(
                               labelText: 'Contraseña',
-                              labelStyle: TextStyle(color: Colors.white),
+                              labelStyle: customTextStyle(fontSize: 15.0),
                             ),
-                            style: TextStyle(color: Colors.white),
+                            style: customTextStyle(fontSize: 15.0),
                           ),
                         ),
                       ],
@@ -89,9 +89,7 @@ class _LoginPageState extends State<LoginPage> {
                           alignment: Alignment.centerRight,
                           child: Text(
                             '¿Se Olvidó de la Contraseña?',
-                            style: TextStyle(
-                                color: Color.fromARGB(250, 104, 58, 183),
-                                fontSize: 15),
+                            style: customTextStyle(color: Color.fromARGB(250, 104, 58, 183), fontSize: 15.0),
                           ),
                         ),
                         Row(
@@ -116,8 +114,7 @@ class _LoginPageState extends State<LoginPage> {
                                   ),
                                   Text(
                                     'Recordar contraseña',
-                                    style: TextStyle(
-                                        color: Colors.white, fontSize: 15),
+                                    style: customTextStyle(fontSize: 15.0),
                                   ),
                                 ],
                               ),
@@ -130,10 +127,7 @@ class _LoginPageState extends State<LoginPage> {
                   SizedBox(width: 20.0),
                   ElevatedButton(
                     onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => Home()),
-                      );
+                      Navigator.pushNamed(context, '/home');
                     },
                     child: Text('Iniciar sesión'),
                   ),
@@ -145,10 +139,7 @@ class _LoginPageState extends State<LoginPage> {
                   SizedBox(height: 20.0),
                   GestureDetector(
                     onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => RegisterPage()),
-                      );
+                      Navigator.pushNamed(context, '/register');
                     },
                     child: Container(
                       margin: EdgeInsets.only(
