@@ -4,7 +4,7 @@ class SeriesDetailsApi {
   final String note;
   final String poster;
   final String status;
-  final int duration;
+  final String duration;
   final List<dynamic> genres;
   final String startDate;
   final String description;
@@ -28,7 +28,7 @@ class SeriesDetailsApi {
       note: json['rating'],
       poster: json['image_thumbnail_path'],
       status: json['status'],
-      duration: json['runtime']/*.toString()*/,
+      duration: json['runtime'].toString(),
       genres: json['genres'],
       startDate: json['start_date'],
       description: json['description'],

@@ -19,9 +19,7 @@ class _LoginPageState extends State<LoginPage> {
       body: SingleChildScrollView(
         child: ConstrainedBox(
           constraints: BoxConstraints(
-            minHeight: MediaQuery.of(context)
-                .size
-                .height, // Al menos el tamaño de la pantalla
+            minHeight: MediaQuery.of(context).size.height,
           ),
           child: Container(
             decoration: const BoxDecoration(
@@ -99,12 +97,10 @@ class _LoginPageState extends State<LoginPage> {
                                   children: [
                                     Checkbox(
                                       value: isChecked,
-                                      checkColor: Colors
-                                          .white, // Color del check cuando está activo
+                                      checkColor: Colors.white,
                                       activeColor: isChecked
                                           ? Colors.purple
-                                          : Colors
-                                              .transparent, // Color del fondo del checkbox cuando está activo o transparente cuando está desactivado
+                                          : Colors.transparent,
                                       onChanged: (value) {
                                         setState(() {
                                           isChecked = value!;
@@ -141,8 +137,7 @@ class _LoginPageState extends State<LoginPage> {
                         Navigator.pushNamed(context, '/register');
                       },
                       child: Container(
-                        margin: EdgeInsets.only(
-                            bottom: 60), // Margen solo hacia abajo
+                        margin: EdgeInsets.only(bottom: 60),
                         child: Text('Registrarse'),
                       ),
                     ),

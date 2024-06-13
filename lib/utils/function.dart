@@ -3,6 +3,7 @@ import 'package:intl/intl.dart';
 
 const Color colorWhiteBorder = Color.fromARGB(255, 201, 200, 200);
 const Color colorPurple = Color.fromRGBO(76, 32, 96, 1);
+const Color colorPurpleLight = Color.fromRGBO(86, 66, 93, 1);
 const LinearGradient linearGradientFading = LinearGradient(
   colors: <Color>[
     Color.fromRGBO(252, 92, 92, 1),
@@ -32,4 +33,13 @@ String changeFormatDate(String dateString) {
   DateFormat format = DateFormat('dd-MM-yyyy');
   String formattedDate = format.format(date);
   return formattedDate;
+}
+
+String numberFormatDate(String number) {
+  int pointLocation = number.indexOf('.');
+  if (pointLocation != -1) {
+    number = number.substring(0, (pointLocation + 3));
+    number = number.replaceAll('.', ',');
+  }
+  return number;
 }
