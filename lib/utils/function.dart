@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -42,4 +44,9 @@ String numberFormatDate(String number) {
     number = number.replaceAll('.', ',');
   }
   return number;
+}
+
+String numberRandom(int min, int maxi) {
+  final int random = min + Random().nextInt(maxi - min + 1);
+  return random.toString();
 }

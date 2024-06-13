@@ -8,6 +8,8 @@ class SeriesDetailsApi {
   final List<dynamic> genres;
   final String startDate;
   final String description;
+  final String chapters;
+  final String seasons;
 
   SeriesDetailsApi({
     required this.id,
@@ -19,6 +21,8 @@ class SeriesDetailsApi {
     required this.genres,
     required this.startDate,
     required this.description,
+    required this.chapters,
+    required this.seasons,
   });
 
   factory SeriesDetailsApi.fromJson(Map<String, dynamic> json) {
@@ -32,6 +36,8 @@ class SeriesDetailsApi {
       genres: json['genres'],
       startDate: json['start_date'],
       description: json['description'],
+      chapters: json['episodes'].length.toString(),
+      seasons: json['episodes'][(json['episodes'].length-1)]['season'].toString(),//(json['episodes'].length-1)
     );
   }
 }

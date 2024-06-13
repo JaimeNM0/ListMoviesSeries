@@ -99,24 +99,24 @@ Widget _buildDetailsSeries(SeriesDetailsApi serie, BuildContext context) {
                   numberFontSize: 24.0,
                 ),
                 const SizedBox(height: 10),
-                const TypeValueFormatWidget(
+                TypeValueFormatWidget(
                   type: 'Top Score',
-                  value: '-',
+                  value: '#${numberRandom(1, 100)}',
                 ),
                 const SizedBox(height: 10),
-                const TypeValueFormatWidget(
+                TypeValueFormatWidget(
                   type: 'Popular',
-                  value: '-',
+                  value: numberRandom(1, 999),
                 ),
                 const SizedBox(height: 10),
-                const TypeValueFormatWidget(
+                TypeValueFormatWidget(
                   type: 'Top popular',
-                  value: '-',
+                  value: '#${numberRandom(1, 100)}',
                 ),
                 const SizedBox(height: 10),
-                const TypeValueFormatWidget(
+                TypeValueFormatWidget(
                   type: 'Favourites',
-                  value: '-',
+                  value: numberRandom(0, 999),
                 ),
               ],
             ),
@@ -156,9 +156,9 @@ Widget _buildDetailsSeries(SeriesDetailsApi serie, BuildContext context) {
             type: 'Status',
             value: serie.status,
           ),
-          const TypeValueFormatWidget(
+          TypeValueFormatWidget(
             type: 'Total Chapters',
-            value: '-',
+            value: '${serie.chapters} chap ${serie.seasons} s',
           ),
           TypeValueFormatWidget(
             type: 'Length',
