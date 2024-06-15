@@ -3,9 +3,9 @@ import 'package:list_movies_series/utils/function.dart';
 
 class CustomDrawer extends StatelessWidget {
   static const Map<String, String> invitado = {
-    'nick': 'Invitado',
-    'nombre': 'Invitado',
-    'correo': 'invitado@gmail.com',
+    'nick': 'Guest',
+    'nombre': 'Guest',
+    'correo': 'guest@gmail.com',
   };
   final Map<String, String> usuario;
 

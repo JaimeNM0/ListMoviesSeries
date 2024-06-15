@@ -4,7 +4,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   String title;
 
   CustomAppBar({Key? key, String? title})
-      : title = (title != null && title.isNotEmpty) ? title : 'Invitado',
+      : title = (title != null && title.isNotEmpty) ? title : 'Guest',
         super(key: key);
 
   @override
@@ -53,7 +53,7 @@ class CustomAppBarDetails extends StatelessWidget
   String title;
 
   CustomAppBarDetails({Key? key, String? title})
-      : title = (title != null && title.isNotEmpty) ? title : 'Invitado',
+      : title = (title != null && title.isNotEmpty) ? title : 'Guest',
         super(key: key);
 
   @override

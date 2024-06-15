@@ -17,9 +17,9 @@ class Home extends StatelessWidget {
     final listSeriesProfile =
         Provider.of<SeriesProfileProvider>(context, listen: false);
     const Map<String, String> usuario = {
-      'nick': 'Serenn',
-      'nombre': 'Juan',
-      'correo': 'juan@gmail.com',
+       //'nick': 'Serenn',
+      //'nombre': 'Juan',
+      //'correo': 'juan@gmail.com',
     };
 
     return WillPopScope(

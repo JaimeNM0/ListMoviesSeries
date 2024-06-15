@@ -15,9 +15,9 @@ class Seeker extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     const Map<String, String> usuario = {
-      'nick': 'Serenn',
-      'nombre': 'Juan',
-      'correo': 'juan@gmail.com',
+     'nick': 'Guest',
+      'nombre': 'Guest',
+      'correo': 'guest@gmail.com',
     };
 
     return Scaffold(

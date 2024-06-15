@@ -46,49 +46,49 @@ class RegisterPage extends StatelessWidget {
                       ),
                       TextField(
                         decoration: InputDecoration(
-                          labelText: 'Nombre',
+                          labelText: 'Name',
                           labelStyle: customTextStyle(fontSize: 10.0),
                         ),
                         style: customTextStyle(fontSize: 16.0),
                       ),
                       TextField(
                         decoration: InputDecoration(
-                          labelText: 'Apellidos',
+                          labelText: 'Surname',
                           labelStyle: customTextStyle(fontSize: 10.0),
                         ),
                         style: customTextStyle(fontSize: 16.0),
                       ),
                       TextField(
                         decoration: InputDecoration(
-                          labelText: 'Género',
+                          labelText: 'Gender',
                           labelStyle: customTextStyle(fontSize: 10.0),
                         ),
                         style: customTextStyle(fontSize: 16.0),
                       ),
                       TextField(
                         decoration: InputDecoration(
-                          labelText: 'Teléfono',
+                          labelText: 'Phone',
                           labelStyle: customTextStyle(fontSize: 10.0),
                         ),
                         style: customTextStyle(fontSize: 16.0),
                       ),
                       TextField(
                         decoration: InputDecoration(
-                          labelText: 'Correo electrónico',
+                          labelText: 'E-mail Address',
                           labelStyle: customTextStyle(fontSize: 10.0),
                         ),
                         style: customTextStyle(fontSize: 16.0),
                       ),
                       TextField(
                         decoration: InputDecoration(
-                          labelText: 'Contraseña',
+                          labelText: 'Password',
                           labelStyle: customTextStyle(fontSize: 10.0),
                         ),
                         style: customTextStyle(fontSize: 16.0),
                       ),
                       TextField(
                         decoration: InputDecoration(
-                          labelText: 'Confirmar Contraseña',
+                          labelText: 'Confirm Password',
                           labelStyle: customTextStyle(fontSize: 10.0),
                         ),
                         style: customTextStyle(fontSize: 16.0),
@@ -101,9 +101,9 @@ class RegisterPage extends StatelessWidget {
             ),
             ElevatedButton(
               onPressed: () {
-                Navigator.pushNamed(context, '/home');
+                Navigator.pushNamed(context, '/login');
               },
-              child: Text('Registrarse'),
+              child: Text('Register'),
             ),
             SizedBox(height: 20),
           ],
