@@ -8,6 +8,11 @@ import 'package:list_movies_series/utils/function.dart';
 import 'package:provider/provider.dart';
 
 class DetailsSeries extends StatelessWidget {
+  static const Map<String, String> invitado = {
+    'nick': 'Guest',
+    'nombre': 'Guest',
+    'correo': 'guest@gmail.com',
+  };
   final String serie;
 
   const DetailsSeries({super.key, required this.serie});
@@ -16,15 +21,10 @@ class DetailsSeries extends StatelessWidget {
   Widget build(BuildContext context) {
     final detailsSeriesDetailsApiProfile =
         Provider.of<SeriesDetailsApiProvider>(context, listen: false);
-    const Map<String, String> usuario = {
-      'nick': 'Serenn',
-      'nombre': 'Juan',
-      'correo': 'juan@gmail.com',
-    };
 
     return Scaffold(
       appBar: CustomAppBarDetails(
-        title: usuario['nick'],
+        title: invitado['nick'],
       ),
       backgroundColor: colorPurple,
       body: SingleChildScrollView(

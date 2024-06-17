@@ -17,7 +17,7 @@ class Home extends StatelessWidget {
     final listSeriesProfile =
         Provider.of<SeriesProfileProvider>(context, listen: false);
     const Map<String, String> usuario = {
-       //'nick': 'Serenn',
+      //'nick': 'Serenn',
       //'nombre': 'Juan',
       //'correo': 'juan@gmail.com',
     };
@@ -90,7 +90,7 @@ class ListadoSeries extends StatelessWidget {
             if (snapshot.hasData) {
               return Container(
                 margin: const EdgeInsets.symmetric(vertical: 10),
-                height: 300,
+                height: 270,
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
                   itemCount: snapshot.data!.length,
@@ -155,27 +155,46 @@ Widget _buildCard(Series series, BuildContext context) {
                     ),
                   ),
                 ),
-                Center(
+                const SizedBox(height: 10),
+                Container(
+                  height: 50.0,
+                  alignment: Alignment.center,
+                  child: Text(
+                    series.name,
+                    textAlign: TextAlign.center,
+                    style: customTextStyle(),
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                ),
+                /*Center(
                   child: Text(
                     series.name,
                     textAlign: TextAlign.center,
                     style: customTextStyle(),
                     maxLines: 2,
                   ),
-                ),
+                ),*/
+                const SizedBox(height: 5),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     Text(
-                      "-",
-                      style: customTextStyle(fontSize: 16.0),
+                      series.status,
+                      style: customTextStyle(fontSize: 15.0),
                     ),
                     Text(
                       changeFormatDate(series.startDate),
-                      style: customTextStyle(fontSize: 16.0),
+                      style: customTextStyle(fontSize: 15.0),
                     ),
                   ],
                 ),
+                /*const Spacer(),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                  ],
+                ),*/
               ],
             ),
           ),

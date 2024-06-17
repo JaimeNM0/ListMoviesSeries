@@ -17,7 +17,6 @@ class CustomDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Drawer(
       child: Container(
-        //color: const Color(0xFFC427BB),
         color: colorPurple,
         child: Column(
           children: <Widget>[
@@ -26,7 +25,6 @@ class CustomDrawer extends StatelessWidget {
                 alignment: Alignment.center,
                 width: double.infinity,
                 child: CircleAvatar(
-                  //backgroundImage: AssetImage('assets/images/LogoMini.png'),
                   child: Image.asset(
                     'assets/images/LogoMini.png',
                     width: 200,
@@ -48,7 +46,21 @@ class CustomDrawer extends StatelessWidget {
                 ),
                 onTap: () {
                   Scaffold.of(context).closeDrawer();
-                  Navigator.pushNamed(context, '/home');
+                  //Navigator.pushNamed(context, '/home');
+                  Navigator.pop(context);
+                }),
+            ListTile(
+                title: Text(
+                  "Search",
+                  style: customTextStyle(),
+                ),
+                leading: const Icon(
+                  Icons.search,
+                  color: Colors.white,
+                ),
+                onTap: () {
+                  Scaffold.of(context).closeDrawer();
+                  Navigator.pushNamed(context, '/seeker');
                 }),
             ListTile(
                 title: Text(
@@ -60,8 +72,7 @@ class CustomDrawer extends StatelessWidget {
                   color: Colors.white,
                 ),
                 onTap: () {
-                  Scaffold.of(context).closeDrawer();
-                  Navigator.pushNamed(context, '/seeker');
+                  print("Ir a Search");
                 }),
             ListTile(
                 title: Text(
