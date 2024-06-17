@@ -37,7 +37,7 @@ class SeriesDetailsApi {
       startDate: json['start_date'],
       description: json['description'],
       chapters: json['episodes'].length.toString(),
-      seasons: json['episodes'][(json['episodes'].length-1)]['season'].toString(),//(json['episodes'].length-1)
+      seasons: (json['episodes'].length-1) != -1 ? json['episodes'][(json['episodes'].length-1)]['season'].toString() : '0',
     );
   }
 }

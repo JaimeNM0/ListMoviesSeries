@@ -39,19 +39,27 @@ class Home extends StatelessWidget {
                 Align(
                   alignment: Alignment.topLeft,
                   child: Text(
-                    "Más populares:",
+                    "More popular:",
                     style: customTextStyle(fontSize: 22.0),
                   ),
                 ),
-                ListadoSeries(list: listSeriesProfile),
+                ListadoSeries(list: listSeriesProfile, page: '1'),
                 Align(
                   alignment: Alignment.topLeft,
                   child: Text(
-                    "Mejores calificaciones:",
+                    "Better grades:",
                     style: customTextStyle(fontSize: 22.0),
                   ),
                 ),
-                ListadoSeries(list: listSeriesProfile),
+                ListadoSeries(list: listSeriesProfile, page: '5'),
+                Align(
+                  alignment: Alignment.topLeft,
+                  child: Text(
+                    "In emission:",
+                    style: customTextStyle(fontSize: 22.0),
+                  ),
+                ),
+                ListadoSeries(list: listSeriesProfile, page: '9'),
               ],
             ),
           ),
@@ -67,13 +75,14 @@ class Home extends StatelessWidget {
 
 class ListadoSeries extends StatelessWidget {
   final list;
+  final String page;
 
-  const ListadoSeries({super.key, required this.list});
+  const ListadoSeries({super.key, required this.list, required this.page});
 
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<List<Series>?>(
-        future: list.getListaSeries(),
+        future: list.getListaSeries(page),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const CircularProgressIndicator();

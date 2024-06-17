@@ -5,13 +5,14 @@ import 'dart:convert';
 import '../models/series_profile_models.dart';
 
 class SeriesProfileProvider extends ChangeNotifier {
-  String url = "https://www.episodate.com/api/most-popular?page=1";
-  List<Series>? listadoSeries = [];
+  String urlBasic = "https://www.episodate.com/api/most-popular?page=";
 
   SeriesProfileProvider();
 
-  Future<List<Series>?> getListaSeries() async {
-    listadoSeries!.clear();
+  Future<List<Series>?> getListaSeries(String? page) async {
+    List<Series>? listadoSeries = [];
+    String url = urlBasic + page!;
+    //listadoSeries!.clear();
 
     Uri miUrl = Uri.parse(url);
     final respuesta = await http.get(miUrl);
