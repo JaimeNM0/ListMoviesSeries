@@ -23,10 +23,9 @@ class DetailsSeries extends StatelessWidget {
     };
 
     return Scaffold(
-      appBar: CustomAppBar(
+      appBar: CustomAppBarDetails(
         title: usuario['nick'],
       ),
-      drawer: CustomDrawer(usuario: usuario),
       backgroundColor: colorPurple,
       body: SingleChildScrollView(
         child: Padding(
@@ -51,7 +50,7 @@ class FutureBuilderDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<SeriesDetailsApi>(
-        future: provider.getListaSeries(serie),
+        future: provider.getDetailsSeries(serie),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const CircularProgressIndicator();
@@ -59,6 +58,7 @@ class FutureBuilderDetails extends StatelessWidget {
             if (snapshot.hasData) {
               return _buildDetailsSeries(snapshot.requireData, context);
             }
+            print(serie);
             return const Text("Error no se ha encontrado nada.");
           }
         });

@@ -8,7 +8,7 @@ class SeriesDetailsApiProvider extends ChangeNotifier {
 
   SeriesDetailsApiProvider();
 
-  Future<SeriesDetailsApi> getListaSeries(String? search) async {
+  Future<SeriesDetailsApi> getDetailsSeries(String? search) async {
     String url = urlBasic + search!;
 
     Uri miUrl = Uri.parse(url);
