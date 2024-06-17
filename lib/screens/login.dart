@@ -17,7 +17,11 @@ class _LoginPageState extends State<LoginPage> {
     return Scaffold(
       appBar: null,
       body: SingleChildScrollView(
-        child: Container(
+        child: ConstrainedBox(
+          constraints: BoxConstraints(
+            minHeight: MediaQuery.of(context).size.height,
+          ),
+          child: Container(
           decoration: BoxDecoration(
             gradient: LinearGradient(
               begin: FractionalOffset.topCenter,
@@ -167,6 +171,7 @@ class _LoginPageState extends State<LoginPage> {
           ),
         ),
       ),
+    )
     );
   }
 }
